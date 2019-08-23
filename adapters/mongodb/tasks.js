@@ -3,11 +3,18 @@ const nosqlQuery = require("../../common/query/nosql");
 
 module.exports = adapter.connector({
     todo: {
-        getTasksBy: ({ userID, createTimestamp } = {}) => ({
+        getTasksBy: ({ userID, from, to } = {}) => ({
             collection: "tasks",
             find: {
                 user_id: userID,
-                create_timestamp: createTimestamp
+                ...(
+                    (from || to) ? {
+                        create_timestamp: adapter.normalize({
+                            $gte: from,
+                            $lt: to
+                        })
+                    } : {}
+                )
             }
         }),
         createTask: ({ userID, title, description }) => ({

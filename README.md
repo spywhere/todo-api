@@ -4,6 +4,9 @@
 For simplicity purpose, the following points are assumed...
 
 - A connection to another system are made as simple as possible, that is no connection handling, no error handling built-in for connection
+- Error due to invalid request structure / format are not being handled
+- An operation performed on the unexisting item will be silently discarded
+- Time limit are taken as `from <= now < to`
 
 ## Setup
 
