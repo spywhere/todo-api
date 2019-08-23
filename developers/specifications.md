@@ -34,7 +34,7 @@ content-type: application/json
 
 {
     "user": string,
-    "password": string  // SHA-1 of the actual password
+    "password": string
 }
 ```
 
@@ -57,6 +57,7 @@ Request
 
 ```
 GET /v1/tasks?filter[from]=[ISO-8601 timestamp]&filter[to]=[ISO-8601 timestamp]
+authorization: bearer [Access Token]
 ```
 
 Response
@@ -85,11 +86,12 @@ Request
 
 ```
 POST /v1/tasks
+authorization: bearer [Access Token]
 content-type: application/json
 
 {
-    "title": string,
-    "description": string
+    "title": string,  // Required
+    "description": string  // Required but can be empty
 }
 ```
 
@@ -105,6 +107,7 @@ Request
 
 ```
 PATCH /v1/tasks/:taskID
+authorization: bearer [Access Token]
 content-type: application/json
 
 {
@@ -125,6 +128,7 @@ Request
 
 ```
 DELETE /v1/tasks/:taskID
+authorization: bearer [Access Token]
 ```
 
 Response
