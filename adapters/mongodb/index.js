@@ -42,6 +42,11 @@ const transformers = {
 };
 
 class MongoDBAdapter extends Adapter {
+    static id(value) {
+        // eslint-disable-next-line new-cap
+        return mongodb.ObjectID(value);
+    }
+
     async getDatabase(databaseName) {
         if (client) {
             return client.db(databaseName);
@@ -105,7 +110,8 @@ class MongoDBAdapter extends Adapter {
             "findOne", "find", "aggregate",
             "insert", "insertOne", "insertMany",
             "update", "updateOne", "updateMany",
-            "findOneAndUpdate", "findOneAndReplace"
+            "findOneAndUpdate", "findOneAndReplace",
+            "deleteOne", "deleteMany"
         ].concat(existOperations).find(
             (methodName) => !!parameter[methodName]
         );

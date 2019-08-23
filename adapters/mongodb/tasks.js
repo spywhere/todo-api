@@ -18,6 +18,13 @@ module.exports = adapter.connector({
                 create_timestamp: new Date(),
                 update_timestamp: new Date()
             }
+        }),
+        deleteTask: ({ userID, taskID }) => ({
+            collection: "tasks",
+            deleteMany: {
+                _id: adapter.id(taskID),
+                user_id: userID
+            }
         })
     }
 });

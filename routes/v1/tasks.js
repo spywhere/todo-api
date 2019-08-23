@@ -17,6 +17,12 @@ module.exports = (app) => {
         controller: "tasks/task-create"
     }]);
 
+    KoaLink.init(app, router).link([{
+        method: "delete",
+        path: "/:taskID",
+        controller: "tasks/task-delete"
+    }]);
+
     return [
         router.routes(),
         router.allowedMethods()
