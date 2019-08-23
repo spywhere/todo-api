@@ -3,6 +3,7 @@ const crypto = require("../../common/crypto");
 
 module.exports = {
     adapters: [
+        "jwt/app",
         "mongodb/users"
     ],
     perform: async({ adapters, request }) => {
@@ -41,7 +42,11 @@ module.exports = {
 
         return {
             body: {
-                user
+                access_token: await adapters.generateAccessToken({
+                    payload: {
+                        uid: user._id
+                    }
+                })
             }
         };
     }
