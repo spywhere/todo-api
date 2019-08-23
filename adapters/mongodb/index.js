@@ -52,6 +52,7 @@ class MongoDBAdapter extends Adapter {
             ...options
         } = config("mongodb");
 
+        // eslint-disable-next-line require-atomic-updates
         client = await mongodb.connect(
             mongodbHost, options
         );

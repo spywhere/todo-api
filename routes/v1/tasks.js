@@ -9,7 +9,7 @@ module.exports = (app) => {
         method: "get",
         path: "/",
         controller: "tasks/task-list"
-    }])
+    }]);
 
     return [
         router.routes(),

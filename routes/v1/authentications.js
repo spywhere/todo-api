@@ -9,7 +9,7 @@ module.exports = (app) => {
         method: "post",
         path: "/login",
         controller: "authentications/login"
-    }])
+    }]);
 
     return [
         router.routes(),

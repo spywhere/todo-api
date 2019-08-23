@@ -1,5 +1,5 @@
 const compose = require("./compose");
-const Logger = require("./logger");
+const logger = require("./logger");
 const loader = require("./loader");
 
 const configLoader = require("../data/config");
@@ -8,7 +8,7 @@ function loadAdapters({ adapterPaths }, options) {
     return ((options || {}).adapters || []).concat(
         adapterPaths
     ).map((adapterPath) => {
-        let requirePath = loader.getRequirePath(
+        const requirePath = loader.getRequirePath(
             "/adapters", `${ adapterPath }`
         );
 
@@ -26,7 +26,7 @@ function setupAdapters({
 }) {
     const adapters = adapterList.map(
         (adapter) => adapter.export()
-        ).reduce((previous, current) => ({ ...previous, ...current }), {});
+    ).reduce((previous, current) => ({ ...previous, ...current }), {});
 
     return adapters;
 }
@@ -39,7 +39,7 @@ class Controller {
                     loader.getControllerDelegate(delegateOrPath), options
                 );
             } catch (error) {
-                Logger.error(error);
+                logger.error(error);
                 return undefined;
             }
         }

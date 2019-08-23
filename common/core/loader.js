@@ -6,7 +6,7 @@ const moduleExists = (modulePath) => fs.existsSync(
 );
 
 const defaultControllerPath = "/controllers";
-const defaultPrefixes = [ "../../" ];
+const defaultPrefixes = ["../../"];
 
 function getRequirePath(directory, modulePath, prefixes) {
     const prefixPaths = prefixes || [...defaultPrefixes];
