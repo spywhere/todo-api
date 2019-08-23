@@ -42,3 +42,4 @@ Application will start on port 3000 by default with connection to MongoDB on por
 ## Documentations
 
 - `developers/architecture.md` Application Architecture
+- `developers/specifications.md` API Specifications
