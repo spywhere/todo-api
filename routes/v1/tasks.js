@@ -9,15 +9,15 @@ module.exports = (app) => {
         method: "get",
         path: "/",
         controller: "tasks/task-list"
-    }]);
-
-    KoaLink.init(app, router).link([{
+    }, {
         method: "post",
         path: "/",
         controller: "tasks/task-create"
-    }]);
-
-    KoaLink.init(app, router).link([{
+    }, {
+        method: "patch",
+        path: "/:taskID",
+        controller: "tasks/task-update"
+    }, {
         method: "delete",
         path: "/:taskID",
         controller: "tasks/task-delete"
