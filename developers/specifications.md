@@ -56,7 +56,7 @@ content-type: application/json
 Request
 
 ```
-GET /v1/tasks?filter[interval]=[ISO-8601 interval]
+GET /v1/tasks?filter[from]=[ISO-8601 timestamp]&filter[to]=[ISO-8601 timestamp]
 ```
 
 Response

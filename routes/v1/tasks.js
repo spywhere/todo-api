@@ -11,6 +11,12 @@ module.exports = (app) => {
         controller: "tasks/task-list"
     }]);
 
+    KoaLink.init(app, router).link([{
+        method: "post",
+        path: "/",
+        controller: "tasks/task-create"
+    }]);
+
     return [
         router.routes(),
         router.allowedMethods()

@@ -8,6 +8,16 @@ module.exports = adapter.connector({
                 user_id: userID,
                 create_timestamp: createTimestamp
             }
+        }),
+        createTask: ({ userID, title, description }) => ({
+            collection: "tasks",
+            insertOne: {
+                user_id: userID,
+                title,
+                description,
+                create_timestamp: new Date(),
+                update_timestamp: new Date()
+            }
         })
     }
 });
