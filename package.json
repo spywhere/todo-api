@@ -23,6 +23,7 @@
     "watch": [
       "common",
       "config",
+      "controllers",
       "links",
       "routes",
       "app.js",
