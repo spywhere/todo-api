@@ -12,7 +12,8 @@
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-helmet": "^4.2.0",
-    "koa-qs": "^2.0.0"
+    "koa-qs": "^2.0.0",
+    "mongodb": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^12.6.8",
@@ -21,6 +22,7 @@
   },
   "nodemonConfig": {
     "watch": [
+      "adapters",
       "common",
       "config",
       "controllers",

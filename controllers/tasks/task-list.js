@@ -1,8 +1,11 @@
 module.exports = {
-    perform: async() => {
+    adapters: [
+        "mongodb/tasks"
+    ],
+    perform: async({ adapters }) => {
         return {
             body: {
-                tasks: []
+                tasks: await adapters.getTasks()
             }
         };
     }
