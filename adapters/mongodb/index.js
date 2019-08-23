@@ -42,6 +42,10 @@ const transformers = {
 };
 
 class MongoDBAdapter extends Adapter {
+    static normalize(obj) {
+        return normalizeObject(obj);
+    }
+
     static id(value) {
         // eslint-disable-next-line new-cap
         return mongodb.ObjectID(value);

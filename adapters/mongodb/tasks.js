@@ -27,8 +27,10 @@ module.exports = adapter.connector({
                 user_id: userID
             }, {
                 $set: {
-                    title,
-                    description,
+                    ...adapter.normalize({
+                        title,
+                        description
+                    }),
                     update_timestamp: new Date()
                 }
             })
