@@ -1,0 +1,16 @@
+version: "3"
+services:
+  api:
+    build:
+      context: ./
+    image: todo-api:latest
+    container_name: api
+    environment:
+      MONGODB_HOST: mongodb://mongo
+    ports:
+      - 3000:3000
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - 27017:27017
